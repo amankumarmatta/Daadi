@@ -45,7 +45,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        Debug.LogError($"Connected to server");
+        Debug.Log($"Connected to server");
     }
 
     public void JoinGame(InputField input)
@@ -60,20 +60,20 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
-        Debug.LogError($"Join room failed because of {message}. Creating new room");
+        Debug.Log($"Join room failed because of {message}. Creating new room");
         PhotonNetwork.CreateRoom(null);
     }
 
     public override void OnJoinedRoom()
     {
-        Debug.LogError($"Player {PhotonNetwork.LocalPlayer.ActorNumber} joined the room");
+        Debug.Log($"Player {PhotonNetwork.LocalPlayer.ActorNumber} joined the room");
         SceneManager.LoadScene(2);
         StartCoroutine(FindManager());
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        Debug.LogError($"Player {newPlayer.ActorNumber} entered the room");
+        Debug.Log($"Player {newPlayer.ActorNumber} entered the room");
         onJoined = true;
     }
 
