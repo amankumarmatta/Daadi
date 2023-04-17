@@ -67,7 +67,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log($"Player {PhotonNetwork.LocalPlayer.ActorNumber} joined the room");
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
         StartCoroutine(FindManager());
     }
 
